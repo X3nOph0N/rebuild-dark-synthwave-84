@@ -1,8 +1,8 @@
 {
     "name": "dark-synthwave-vscode",
-    "displayName": "Xenas's rebuild of Aaron's Dark synthWave",
+    "displayName": "Xenas's rebuild of Aaron's Dark SynthWave",
     "description": "Make it work in current vscode version",
-    "version": "0.1",
+    "version": "0.1.0",
     "author": "Xenas",
     "publisher": "Xenas",
     "icon": "icon.png",
@@ -35,23 +35,23 @@
         ],
         "commands": [
             {
-                "command": "synthwave84.enableNeon",
-                "title": "Synthwave '84: Enable Neon Dreams"
+                "command": "dark-synthwave84.enableNeon",
+                "title": "Dark Synthwave '84: Enable Neon Dreams"
             },
             {
-                "command": "synthwave84.disableNeon",
-                "title": "Synthwave '84: Disable Neon Dreams"
+                "command": "dark-synthwave84.disableNeon",
+                "title": "Dark Synthwave '84: Disable Neon Dreams"
             }
         ],
         "configuration": {
-            "title": "Synthwave '84",
+            "title": "Dark Synthwave '84",
             "properties": {
-                "synthwave84.brightness": {
+                "dark-synthwave84.brightness": {
                     "type": "number",
                     "default": 0.45,
                     "description": "Set the brightness value for the glow effect. 0.0 is fully transparent and 1.0 is fully bright"
                 },
-                "synthwave84.disableGlow": {
+                "dark-synthwave84.disableGlow": {
                     "type": "boolean",
                     "default": false,
                     "description": "Disable the glow effect, but show Synthwave '84 editor chrome updates"
