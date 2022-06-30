@@ -7,10 +7,10 @@ const diff = require('semver/functions/diff');
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
-	this.extensionName = 'RobbOwen.synthwave-vscode';
+	this.extensionName = 'Xenas.dark-synthwave-vscode';
 	this.cntx = context;
 	
-	const config = vscode.workspace.getConfiguration("synthwave84");
+	const config = vscode.workspace.getConfiguration("dark-synthwave84");
 
 	let disableGlow = config && config.disableGlow ? !!config.disableGlow : false;
 	
@@ -19,9 +19,10 @@ function activate(context) {
 	brightness = isNaN(brightness) ? 0.45 : brightness;
 
 	const parsedBrightness = Math.floor(brightness * 255).toString(16).toUpperCase();
+	
 	let neonBrightness = parsedBrightness;
 
-	let disposable = vscode.commands.registerCommand('synthwave84.enableNeon', function () {
+	let disposable = vscode.commands.registerCommand('dark-synthwave84.enableNeon', function () {
 
 		const isWin = /^win/.test(process.platform);
 		const appDir = path.dirname(require.main.filename);
@@ -49,7 +50,7 @@ function activate(context) {
 			const themeWithGlow = jsTemplate.replace(/\[DISABLE_GLOW\]/g, disableGlow);
 			const themeWithChrome = themeWithGlow.replace(/\[CHROME_STYLES\]/g, chromeStyles);
 			const finalTheme = themeWithChrome.replace(/\[NEON_BRIGHTNESS\]/g, neonBrightness);
-			fs.writeFileSync(templateFile, finalTheme, "utf-8");
+			fs.writeFileSync(templateFile, finalTheme, "utf-8")
 			
 			// modify workbench html
 			const html = fs.readFileSync(htmlFile, "utf-8");
@@ -59,9 +60,9 @@ function activate(context) {
 
 			if (!isEnabled) {
 				// delete synthwave script tag if there
-				let output = html.replace(/^.*(<!-- SYNTHWAVE 84 --><script src="neondreams.js"><\/script><!-- NEON DREAMS -->).*\n?/mg, '');
+				let output = html.replace(/^.*(<!-- DARK SYNTHWAVE 84 --><script src="neondreams.js"><\/script><!-- NEON DREAMS -->).*\n?/mg, '');
 				// add script tag
-				output = html.replace(/\<\/html\>/g, `	<!-- SYNTHWAVE 84 --><script src="neondreams.js"></script><!-- NEON DREAMS -->\n`);
+				output = html.replace(/\<\/html\>/g, ` <!-- DARK SYNTHWAVE 84 --><script src="neondreams.js"></script><!-- NEON DREAMS -->\n`);
 				output += '</html>';
 	
 				fs.writeFileSync(htmlFile, output, "utf-8");
@@ -90,7 +91,7 @@ function activate(context) {
 		}
 	});
 
-	let disable = vscode.commands.registerCommand('synthwave84.disableNeon', uninstall);
+	let disable = vscode.commands.registerCommand('dark-synthwave84.disableNeon', uninstall);
 	
 	context.subscriptions.push(disposable);
 	context.subscriptions.push(disable);

@@ -8,7 +8,7 @@
     "icon": "icon.png",
     "repository": {
         "type": "git",
-        "url": "https://github.com/robb0wen/synthwave-vscode"
+        "url": "C:\\Users\\Xenophon Axton\\Desktop\\synthwave-dev\\self-synthwave\\.git"
     },
     "engines": {
         "vscode": "^1.33.0"
@@ -30,7 +30,7 @@
             {
                 "label": "Dark SynthWave '84",
                 "uiTheme": "vs-dark",
-                "path": "./themes/synthwave-color-theme.json"
+                "path": "./themes/dark-synthwave-color-theme.json"
             }
         ],
         "commands": [
